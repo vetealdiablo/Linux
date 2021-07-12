@@ -1,3 +1,7 @@
++---------------+
+|     Gentoo    |
++---------------+
+
 mkdir /mnt/gentoo
 mount /dev/sda3 /mnt/gentoo
 mkdir /mnt/gentoo/boot
@@ -14,10 +18,9 @@ LINGUAS="es es_AR"
 L10N="es es-AR"
 
 VIDEO_CARDS="nvidia"
-USE="X mtp -kde -qt4 -qt5 -systemd"
+USE="X gnome gtk -kde -qt4 -qt5 -systemd"
 EMERGE_DEFAULT_OPTS="--j 4 --load-average 2.9"
 MAKEOPTS="-j5"
-
 ----------------------------------------------------------------------
 cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
 ----------------------------------------------------------------------
@@ -34,7 +37,7 @@ export PS1="(chroot) ${PS1}"
 emerge-webrsync / emerge --sync
 
 eselect profile list
-eselect profile set "numero"
+eselect profile set [número]
 
 emerge --ask rust-bin
 
@@ -52,6 +55,7 @@ es_ES.UTF-8 UTF-8
 
 locale-gen
 eselect locale list
+eselect locale set [número]
 env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 ----------------------------------------------------------------------
 emerge --ask sys-kernel/gentoo-kernel-bin
