@@ -1,0 +1,34 @@
+emerge --ask gnome-base/gnome
+
+*webkit-gtk tarda muchisimo! Entre 1 a 4 horas dependiendo si es ssd o hdd
+
+Configuration
+Specify the GNOME display manager, as follows
+
+# What display manager do you use ?  [ xdm | gdm | kdm | gpe | entrance ]
+# NOTE: If this is set in /etc/rc.conf, that setting will override this one.
+DISPLAYMANAGER="gdm"
+
+Leave the rest of the file as-is.
+
+Then, set dbus, gdm, and openrc-settingsd to come up in the default runlevel:
+rc-update add dbus default
+rc-update add gdm default
+rc-update add openrc-settingsd default
+
+Also, ensure that the sys-auth/elogind service starts up at boot:
+rc-update add elogind boot
+
+Next, check if the machine has a plugdev group, and, if it does, add any regular users to it:
+getent group plugdev && gpasswd -a <regular_username> plugdev
+
+Similarly, to allow regular users to play GNOME games, add them to the games group:
+getent group games && gpasswd -a <regular_username> games
+
+To allow the use of direct rendering, issue:
+getent group video && gpasswd -a <regular_username> video
+
+Finally, start up GNOME!
+openrc
+
+A GNOME login screen should now be visible (and this will also come up automatically on boot). On some machines, it may be necessary to move the mouse or press a key, for the login screen to appear. 

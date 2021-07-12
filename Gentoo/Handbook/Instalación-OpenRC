@@ -1,0 +1,103 @@
+mkdir /mnt/gentoo
+mount /dev/sda3 /mnt/gentoo
+mkdir /mnt/gentoo/boot
+mount /dev/sda1 /mnt/gentoo/boot
+swapon /dev/sda2
+----------------------------------------------------------------------
+cd /mnt/gentoo/
+tar xpvf stage* --xattrs-include='*.*' --numeric-owner
+
+nano -w /mnt/gentoo/etc/portage/make.conf
+ACCEPT_LICENSE="*"
+
+LINGUAS="es es_AR"
+L10N="es es-AR"
+
+VIDEO_CARDS="nvidia"
+USE="X mtp -kde -qt4 -qt5 -systemd"
+EMERGE_DEFAULT_OPTS="--j 4 --load-average 2.9"
+MAKEOPTS="-j5"
+
+----------------------------------------------------------------------
+cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
+----------------------------------------------------------------------
+mount --types proc /proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+----------------------------------------------------------------------
+chroot /mnt/gentoo /bin/bash
+source /etc/profile
+export PS1="(chroot) ${PS1}"
+----------------------------------------------------------------------
+emerge-webrsync / emerge --sync
+
+eselect profile list
+eselect profile set "numero"
+
+emerge --ask rust-bin
+
+emerge --ask --verbose --update --deep --newuse @world
+----------------------------------------------------------------------
+ls /usr/share/zoneinfo
+echo "America/Argentina/Buenos_Aires" > /etc/timezone
+emerge --config sys-libs/timezone-data
+
+nano -w /etc/locale.gen
+es_AR ISO-8859-1
+es_AR.UTF-8 UTF-8
+es_ES ISO-8859-1
+es_ES.UTF-8 UTF-8
+
+locale-gen
+eselect locale list
+env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
+----------------------------------------------------------------------
+emerge --ask sys-kernel/gentoo-kernel-bin
+----------------------------------------------------------------------
+nano -w /etc/fstab
+/dev/sdx1   /boot        ext4    defaults,noatime     0 2
+/dev/sdx2   none         swap    sw                   0 0
+/dev/sdx3   /            ext4    noatime              0 1
+----------------------------------------------------------------------
+nano -w /etc/conf.d/hostname
+# Set the hostname variable to the selected host name
+hostname="tux"
+
+nano -w /etc/conf.d/net
+# Defina la variable dns_domain_lo con el nombre de dominio seleccionado
+dns_domain_lo="reddecasa"
+
+
+nano -w /etc/hosts
+# Esto define el presente sistema y debe estar configurado
+127.0.0.1     tux.reddecasa tux localhost
+----------------------------------------------------------------------
+passwd
+----------------------------------------------------------------------
+nano -w /etc/conf.d/keymaps
+nano -w /etc/conf.d/hwclock
+Si el reloj hardware no está utilizando UTC, entonces es necesario definir clock="local" en el archivo, de lo contrario, el sistema podría mostrar un comportamiento de desfase en el reloj. 
+----------------------------------------------------------------------
+emerge --ask xinit dhcpcd pciutils gentoolkit sudo ntfs3g elogind sys-apps/dbus
+----------------------------------------------------------------------
+emerge --ask --verbose sys-boot/grub:2
+grub-install /dev/sdx
+grub-mkconfig -o /boot/grub/grub.cfg
+----------------------------------------------------------------------
+groupadd games
+useradd -m -G users,wheel,audio,video,usb,portage,games,plugdev -s /bin/bash spity
+passwd spity
+usermod -c "Spity" spity
+----------------------------------------------------------------------
+emerge --ask x11-base/xorg-server
+env-update
+source /etc/profile 
+
+Reparar problemas al inicio de startx:
+chmod u+s /usr/bin/Xorg
+X -configure
+----------------------------------------------------------------------
+
+
