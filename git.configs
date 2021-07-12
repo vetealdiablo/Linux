@@ -1,0 +1,22 @@
+Configure Git
+In your shell, add your user name:
+
+git config --global user.name "your_username"
+
+Add your email address:
+
+git config --global user.email "your_email_address@example.com"
+
+To check the configuration, run:
+
+git config --global --list
+----------------------------------
+git clone https://github.com/vetealdiablo/freebsd
+cd freebsd
+ls
+
+Para agregar una carpeta: ej configs
+
+git add configs
+git commit -m "Comentario para describir"
+git push -u origin main
