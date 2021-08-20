@@ -1,0 +1,17 @@
+GNU nano is my favorite text editor while I’m on console. Although, it doesn’t offer syntax highlighting by default, it comes with a decent set of syntax highlighting files. Usually, these files are exist in /usr/local/share/nano or /usr/share/nano, depending on your distro’s preference. You can enable syntax highlighting for your prefered language(s) by including related file(s) with .nanorc extension in your ~/.nanorc file.
+~/.nanorc
+
+
+GNU/Linux
+
+$ printf ~/.nanorc \
+    && find /usr/share/nano/ -iname '*.nanorc' \
+    | xargs printf 'include "%s"\n' >> ~/.nanorc && cat ~/.nanorc
+
+no wrap:
+$ printf 'set nowrap\n\n' > ~/.nanorc \
+    && find /usr/share/nano/ -iname '*.nanorc' \
+    | xargs printf 'include "%s"\n' >> ~/.nanorc && cat ~/.nanorc
+
+
+Fuente: https://www.babaei.net/blog/nano-syntax-highlighting/

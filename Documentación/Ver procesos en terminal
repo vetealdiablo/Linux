@@ -1,0 +1,21 @@
+top – Process activity monitoring command
+top command display Linux processes. It provides a dynamic real-time view of a running system i.e. actual process activity. By default, it displays the most CPU-intensive tasks running on the server and updates the list every five seconds.
+
+# top
+
+Here is a list of useful hot keys:
+
+Hot Key	Usage
+t	Displays summary information off and on.
+m	Displays memory information off and on.
+A	Sorts the display by top consumers of various system resources. Useful for quick identification of performance-hungry tasks on a system.
+f	Enters an interactive configuration screen for top. Helpful for setting up top for a specific task.
+o	Enables you to interactively select the ordering within top.
+r	Issues renice command.
+k	Issues kill command.
+z	Turn on or off color/mono
+
+
+free – Show Linux server memory usage
+free command shows the total amount of free and used physical and swap memory in the system, as well as the buffers used by the kernel.
+# free

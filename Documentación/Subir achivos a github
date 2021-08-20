@@ -1,0 +1,17 @@
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+
+Configure Git
+To start using Git from your computer, you’ll need to enter your credentials (user name and email) to identify you as the author of your work. The user name and email should match the ones you’re using on GitLab.
+In your shell, add your user name:
+git config --global user.name "your_username"
+And your email address:
+git config --global user.email "your_email_address@example.com"
+To check the configuration, run:
+git config --global --list
+
+git init
+git add <folder1> <folder2> <etc.>
+git commit -m "Your message about the commit"
+git remote add origin https://github.com/yourUsername/yourRepository.git
+git push -u origin master
+git push origin master  

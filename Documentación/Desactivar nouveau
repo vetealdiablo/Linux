@@ -1,0 +1,4 @@
+añadir en /etc/default/grub:
+nouveau.modeset=0
+
+y eliminar la opción "quiet"

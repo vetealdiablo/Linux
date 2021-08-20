@@ -1,0 +1,10 @@
+Configuración
+Nota: Arch proporciona, de forma predeterminada, archivos de configuración en /etc/X11/xorg.conf.d, y, en la mayoría de los casos, no es necesaria una configuración anterior.
+
+Xorg utiliza un archivo de configuración llamado xorg.conf y archivos que terminan en el sufijo .conf para su configuración inicial: la lista completa de las carpetas en las que buscar estos archivos se puede encontrar en [1] o mediante la ejecución de xorg.conf(5), que viene acompañado de una explicación detallada de todas las opciones disponibles.
+Usar archivos .conf
+
+La carpeta /etc/X11/xorg.conf.d/ guarda la configuración específica del usuario. Cada usuario es libre de añadir archivos de configuración a /etc/X11/xorg.conf.d/, pero tengan en cuenta que dichos archivos deben comenzar con XX- (donde XX es un número) y tienen que terminar en .conf (10 se lee antes que 20, por ejemplo). Estos archivos son analizados por el servidor X al arrancar y son tratados como parte del archivo de configuración xorg.conf tradicional. El servidor X, esencialmente, lo que hace es tratar dicha colección de archivos de configuración como un único archivo de gran tamaño con las entradas desde xorg.conf al final.
+Usar xorg.conf
+
+Xorg también se puede configurar mediante los archivo /etc/X11/xorg.conf o /etc/xorg.conf. También puede generar la estructura de xorg.conf con: 

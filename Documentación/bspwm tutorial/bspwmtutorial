@@ -1,0 +1,30 @@
+ARCH
+sudo pacman -S bspwm sxhkd rofi feh maim xclip picom ttf-font-awesome 
+
+Void
+sudo xbps-install rofi bspwm sxhkd feh maim polybar xclip picom font-awesome5 font-awesome 
+
+# Now copy the bspwmrc / sxhkdrc files
+mkdir ~/.config/bspwm && mkdir ~/.config/sxhkd
+
+
+
+# Now lets check the bspwmrc file 
+
+xrdb merge ~/.Xresources & # (termnal theme)
+
+
+# Now copy my polybar folder ( from my repo ofc ) to your ~/.config folder or you can use the default polybar and configure it yourself.
+
+# To use the default polybar config :
+mkdir ~/.config/polybar (this will make polybar folder) 
+
+
+
+# If you used my polybar config then , simply add this in your bspwmrc : ~/.config/polybar/launch.sh
+
+My polybar config has two files : config and launch.sh . the config file has all the modules , fonts etc stuffs and the launch.sh file just reads the polybar barname from the config file and runs it .
+
+# If some fonts on polybar ( my config ) dont work then probably you need to install fontawesome5 fonts and fonts used by my polybar. Just put all the files from my font repo to your ~/.local/share/fonts folder and then do : fc-cache -fv . If there's no fonts folder then create it ! .
+
+# If the wifi module doesnt work on the polybar then check your wlan interface's name ( type iwconfig to know it ) and replace it with mine under config . 

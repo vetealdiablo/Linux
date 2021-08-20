@@ -1,0 +1,160 @@
+Emacs*toolBar: 0
+Emacs*menuBar: 0
+Emacs*verticalScrollBars: off
+
+!*font: -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+URxvt.font: xft:Bitstream Vera Sans Mono:size=12
+URxvt.letterSpace: -1
+
+URxvt.jumpScroll: true
+URxvt.skipScroll: true
+URxvt.saveLines: 32768
+URxvt.scrollBar: false
+URxvt.background: black
+URxvt.foreground: lightgrey
+URxvt.internalBorder: 1
+URxvt.cursorBlink: 0
+URxvt.visualBell: off
+URxvt.keysym.Mod1-u: perl:mark-yank-urls:activate_mark_mode
+URxvt.keysym.Mod4-p: perl:fonts:plus
+URxvt.keysym.Mod4-m: perl:fonts:minus
+URxvt.keysym.Mod4-o: perl:cwd-spawn
+URxvt.keysym.Mod4-s: perl:searchable-scrollback:start
+URxvt.underlineURLs: false
+URxvt.perl-ext: selection,mark-yank-urls,cwd-spawn,selection-to-clipboard
+URxvt.urlLauncher: google-chrome
+URxvt.urgentOnBell: true
+URxvt.scrollstyle: next
+!URxvt.color4: #496AA0
+!URxvt.color12: #11AAFF
+
+
+URxvt*color0  : #2E3436
+URxvt*color8  : #555753
+! red
+URxvt*color1  : #AA0000
+URxvt*color9  : #FF5555
+! green
+URxvt*color2  : #00AA00
+URxvt*color10 : #55FF55
+! yellow
+URxvt*color3  : #AA5500
+URxvt*color11 : #FFFF55
+! blue
+URxvt*color4  : #0000AA
+URxvt*color12 : #5555FF
+! magenta
+URxvt*color5  : #AA00AA
+URxvt*color13 : #FF55FF
+! cyan
+URxvt*color6  : #00AAAA
+URxvt*color14 : #55FFFF
+! white
+URxvt*color7  : #D3D7CF
+URxvt*color15 : #EEEEEC
+
+!Xft.hinting: 1
+!Xft.hintstyle: hintslight
+!Xft.antialias: 1
+!Xft.rgba: rgb
+
+! SRVR_midna is defined by xrdb(1) when connected to the X11 display with
+! hostname midna, see https://manpages.debian.org/stretch/x11-xserver-utils/xrdb.1
+#ifdef SRVR_midna
+! https://michael.stapelberg.de/posts/2017-12-11-dell-up3218k/
+#Xft.dpi: 288
+#else
+#Xft.dpi: 192
+#endif
+
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+!*background: black
+!*foreground: lightgrey
+
+Xcursor.theme: Adwaita
+
+XTerm.vt100.termName: xterm-256color
+
+XTerm.vt100.bellIsUrgent: true
+
+XTerm.vt100.foreground: lightgrey
+XTerm.vt100.background: black
+
+XTerm.vt100.faceName: Bitstream Vera Sans Mono:size=12:antialias=true
+
+XTerm.vt100.color0: #2E3436
+XTerm.vt100.color8: #555753
+! red
+XTerm.vt100.color1: #CC0000
+XTerm.vt100.color9: #EF2929
+! green
+XTerm.vt100.color2  : #4E9A06
+XTerm.vt100.color10 : #8AE234
+! yellow
+XTerm.vt100.color3  : #C4A000
+XTerm.vt100.color11 : #FCE94F
+! blue
+XTerm.vt100.color4  : #3465A4
+XTerm.vt100.color12 : #729FCF
+! magenta
+XTerm.vt100.color5  : #EF33C0
+XTerm.vt100.color13 : #EE38DA
+! cyan
+XTerm.vt100.color6  : #04B5B8
+XTerm.vt100.color14 : #34E2E2
+! white
+XTerm.vt100.color7  : #D3D7CF
+XTerm.vt100.color15 : #EEEEEC
+
+! These were taken from xterm(1), then prepended with a colon as per
+! https://lists.neo-layout.org/pipermail/diskussion/2009-May/000265.html
+XTerm*VT100.translations: #replace \n\
+                     :Shift <KeyPress> Prior:scroll-back(1,halfpage) \n\
+                      :Shift <KeyPress> Next:scroll-forw(1,halfpage) \n\
+                    :Shift <KeyPress> Select:select-cursor-start() \
+                                            select-cursor-end(SELECT, CUT_BUFFER0) \n\
+                    :Shift <KeyPress> Insert:insert-selection(SELECT, CUT_BUFFER0) \n\
+                            :Alt <Key>Return:fullscreen() \n\
+                   <KeyRelease> Scroll_Lock:scroll-lock() \n\
+               :Shift~Ctrl <KeyPress> KP_Add:larger-vt-font() \n\
+               :Shift Ctrl <KeyPress> KP_Add:smaller-vt-font() \n\
+               :Shift <KeyPress> KP_Subtract:smaller-vt-font() \n\
+                           ~Meta <KeyPress>:insert-seven-bit() \n\
+                            Meta <KeyPress>:insert-eight-bit() \n\
+                           !Ctrl <Btn1Down>:popup-menu(mainMenu) \n\
+                      !Lock Ctrl <Btn1Down>:popup-menu(mainMenu) \n\
+            !Lock Ctrl @Num_Lock <Btn1Down>:popup-menu(mainMenu) \n\
+                ! @Num_Lock Ctrl <Btn1Down>:popup-menu(mainMenu) \n\
+                           ~Meta <Btn1Down>:select-start() \n\
+                         ~Meta <Btn1Motion>:select-extend() \n\
+                           !Ctrl <Btn2Down>:popup-menu(vtMenu) \n\
+                      !Lock Ctrl <Btn2Down>:popup-menu(vtMenu) \n\
+            !Lock Ctrl @Num_Lock <Btn2Down>:popup-menu(vtMenu) \n\
+                ! @Num_Lock Ctrl <Btn2Down>:popup-menu(vtMenu) \n\
+                     ~Ctrl ~Meta <Btn2Down>:ignore() \n\
+                            Meta <Btn2Down>:clear-saved-lines() \n\
+                       ~Ctrl ~Meta <Btn2Up>:insert-selection(SELECT, CUT_BUFFER0) \n\
+                           !Ctrl <Btn3Down>:popup-menu(fontMenu) \n\
+                      !Lock Ctrl <Btn3Down>:popup-menu(fontMenu) \n\
+            !Lock Ctrl @Num_Lock <Btn3Down>:popup-menu(fontMenu) \n\
+                ! @Num_Lock Ctrl <Btn3Down>:popup-menu(fontMenu) \n\
+                     ~Ctrl ~Meta <Btn3Down>:start-extend() \n\
+                         ~Meta <Btn3Motion>:select-extend() \n\
+                            Ctrl <Btn4Down>:scroll-back(1,halfpage,m) \n\
+                       Lock Ctrl <Btn4Down>:scroll-back(1,halfpage,m) \n\
+             Lock @Num_Lock Ctrl <Btn4Down>:scroll-back(1,halfpage,m) \n\
+                  @Num_Lock Ctrl <Btn4Down>:scroll-back(1,halfpage,m) \n\
+                                 <Btn4Down>:scroll-back(5,line,m)     \n\
+                            Ctrl <Btn5Down>:scroll-forw(1,halfpage,m) \n\
+                       Lock Ctrl <Btn5Down>:scroll-forw(1,halfpage,m) \n\
+             Lock @Num_Lock Ctrl <Btn5Down>:scroll-forw(1,halfpage,m) \n\
+                  @Num_Lock Ctrl <Btn5Down>:scroll-forw(1,halfpage,m) \n\
+                                 <Btn5Down>:scroll-forw(5,line,m)     \n\
+                                    <BtnUp>:select-end(SELECT, CUT_BUFFER0) \n\
+                                  <BtnDown>:ignore()

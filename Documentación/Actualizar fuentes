@@ -1,0 +1,15 @@
+On Linux systems, font binaries are generally installed in either the system font directory on the path /usr/share/fonts/ or in a user font directory that is frequently on one of the following paths: ~/.local/share/fonts/ or /usr/local/share/fonts. We’ll use the ~/.local/share/fonts/ path in this example. If the directory does not exist, create it with the following command:
+$ mkdir ~/.local/share/fonts
+
+
+Clear and regenerate your font cache
+Next, clear and regenerate your font cache with the following command: ibm terminal font
+$ fc-cache -f -vStep 4 : Clear and regenerate your font cache
+Next, clear and regenerate your font cache with the following command:
+$ fc-cache -f -v
+
+
+You will see a stream of text as the font cache is created. This can be a lengthy body of text if you have a large number of fonts installed on your system. If you examine the text closely, you should see that your new font installs were identified during this process.
+Step 5 : Verify the installation
+Confirm that the fonts are installed by displaying the paths and style definitions with the fc-list executable filtered on the font family name with grep:
+$ fc-list | grep "Hack"

@@ -1,0 +1,3 @@
+Para mostrar el nombre correcto de las fuentes y poder usarlas en xterm por ejemplo, solo debe utilizar el siguiente comando:
+
+$ fc-list | cut -f2 -d: | sort -u

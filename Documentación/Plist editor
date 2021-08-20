@@ -1,0 +1,5 @@
+apt-get install libplist-utils
+
+Usage example:
+
+plistutil -i Info.plist

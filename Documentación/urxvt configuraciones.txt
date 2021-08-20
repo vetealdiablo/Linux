@@ -1,0 +1,5 @@
+fc-list | grep nombredefuente
+
+URxvt.font:xft:nombre:light:size=13,xft:Noto Sans CJK SC:size=11
+xrdb ~/.Xresources
+xrdb ~/.Xresources && urxvt

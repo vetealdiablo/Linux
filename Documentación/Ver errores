@@ -1,0 +1,5 @@
+Inmediatamende del error ejecutar en terminal:
+dmesg -T
+
+Además, busque en /var/log/messages los errores que coincidan con el mismo tiempo.
+

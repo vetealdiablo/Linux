@@ -1,0 +1,8 @@
+
+
+UFS2 read only support is included into linux kernel since version 2.6.5. For example:
+
+mount -t ufs -o ufstype=ufs2 -o ro  /dev/sdb /mnt/bsd/
+
+You still need an extra HDD to copy data from UFS drive.
+

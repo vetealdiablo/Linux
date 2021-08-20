@@ -1,0 +1,11 @@
+Problem solved.
+Solution:
+1. create a file ~/.config/gtk-3.0/gtk.css
+2. paste following content in this file:
+Code:
+* {
+-ThunarAbstractIconView-row-spacing: 70;
+-ThunarAbstractIconView-column-spacing: 30;
+}
+3. Log off and login again.
+Credit: ToZ (https://forum.xfce.org/viewtopic.php?pid=48909#p48909)
