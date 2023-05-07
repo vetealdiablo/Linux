@@ -1,0 +1,13 @@
+decoration {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+  margin:10px;
+  }
+  
+  
+VteTerminal,
+ TerminalScreen,
+ vte-terminal {
+     padding: 10px 10px 10px 10px;
+     -VteTerminal-inner-border: 10px 10px 10px 10px;
+ }

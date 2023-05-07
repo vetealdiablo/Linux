@@ -1,0 +1,7 @@
+/**********************
+ * Window Decorations *
+ *********************/
+  window.csd {
+    box-shadow: 0 30px 50px 1px rgba(0, 0, 0, 0.5);
+    border: none;
+    }
